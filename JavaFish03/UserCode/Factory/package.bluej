@@ -1,0 +1,27 @@
+#BlueJ package file
+objectbench.height=76
+objectbench.width=658
+package.editor.height=400
+package.editor.width=560
+package.editor.x=392
+package.editor.y=204
+package.numDependencies=0
+package.numTargets=2
+package.showExtends=true
+package.showUses=true
+target1.height=50
+target1.name=UpdatableFactory
+target1.showInterface=false
+target1.type=ClassTarget
+target1.typeParameters=
+target1.width=120
+target1.x=160
+target1.y=100
+target2.height=50
+target2.name=IUpdatableFactory
+target2.showInterface=false
+target2.type=InterfaceTarget
+target2.typeParameters=
+target2.width=130
+target2.x=160
+target2.y=10

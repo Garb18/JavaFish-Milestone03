@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=
+comment0.target=double\ returnDouble()
+comment1.params=min\ max
+comment1.target=double\ returnDouble(double,\ double)
+numComments=2

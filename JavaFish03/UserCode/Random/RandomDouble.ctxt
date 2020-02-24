@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=
+comment0.target=RandomDouble()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ RandomDouble\r\n
+comment1.params=
+comment1.target=double\ returnDouble()
+comment2.params=min\ max
+comment2.target=double\ returnDouble(double,\ double)
+numComments=3
