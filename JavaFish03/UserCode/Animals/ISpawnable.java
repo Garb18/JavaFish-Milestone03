@@ -2,6 +2,7 @@ package UserCode.Animals;
 
 import UserCode.Minds.*;
 import Framework.Interfaces.IWorld;
+import UserCode.Random.*;
 import Exceptions.*;
 
 /**
@@ -22,5 +23,5 @@ public interface ISpawnable
      * @param yOrientation double giving the orientation about y axis.
      * @param zOrientation double giving orientation about z axis.
      */
-    void spawn(IWorld world, IMind pMind, double pX, double pY, double xOrientation, double yOrientation)throws WorldDoesNotExistException;
+    void spawn(IWorld world, IMind pMind, double pX, double pY, double xOrientation, double yOrientation, IRandom pRdm, double pMinPos, double pMaxPos)throws WorldDoesNotExistException;
 }

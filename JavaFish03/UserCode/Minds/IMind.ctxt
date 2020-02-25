@@ -1,6 +1,4 @@
 #BlueJ class context
-comment0.params=pDisplayObkject\ pX\ pY
-comment0.target=void\ initialise(Framework.Interfaces.IDisplayObject,\ double,\ double)
-comment1.params=
-comment1.target=void\ update()
-numComments=2
+comment0.params=pDisplayObkject\ pRdm\ pMinPos\ pMaxPos\ pX\ pY
+comment0.target=void\ initialise(Framework.Interfaces.IDisplayObject,\ UserCode.Random.IRandom,\ double,\ double,\ double,\ double)
+numComments=1

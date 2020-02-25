@@ -53,7 +53,7 @@ public class DisplayObject implements IDisplayObject
     {
         this.x += xPosition;
         this.y += yPosition;
-        this.z += zPosition;
+        this.z = zPosition;
     }
     
     /**

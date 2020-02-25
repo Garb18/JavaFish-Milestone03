@@ -54,7 +54,7 @@ public class Simulation implements IInputListener
     // DECLARE a boolean that signals when the simulation loop should be exited:
     private boolean endSim = false;    
     
-    private int _javaFishAmount = 10, _orangeFishAmount = 10;
+    private int _javaFishAmount = 10000, _orangeFishAmount = 10;
     
     /**
      * METHOD: Static Main method used for creating standalone apps
@@ -157,9 +157,16 @@ public class Simulation implements IInputListener
                 if (updatable instanceof JavaFish)
                 {
                     // Create a mind object
-                    IMind mind = new HorizontalMind(_rdm, 1.0, 9.0);
-                    // Initialise updatable with a position, orientation, and mind:
-                    ((ISpawnable)updatable).spawn(_world, mind, _rdm.returnDouble(1,8), _rdm.returnDouble(1,6), 0, 90);
+                    try
+                    {
+                        IUpdatable mind = _factory.create(HorizontalMind.class);
+                        // Initialise updatable:
+                        ((ISpawnable)updatable).spawn(_world, ((IMind)mind), _rdm.returnDouble(1,8), _rdm.returnDouble(1,7), 0, 270,_rdm, 1.0, 9.0);                
+                    }
+                    catch(Exception e)
+                    {
+                        //Do nothing
+                    }
                 }
             }
             // Start simulation loop:

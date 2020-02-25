@@ -1,6 +1,7 @@
 package UserCode.Animals;
 
 import UserCode.Minds.*;
+import UserCode.Random.*;
 import Framework.Interfaces.IDisplayObject;
 import Framework.Interfaces.IWorld;
 import Framework.Implementations.DisplayObject;
@@ -37,7 +38,7 @@ public class JavaFish implements IUpdatable, ISpawnable
         _displayObject = new DisplayObject(_model, _texture, 0.15);
     }
     
-    public void spawn(IWorld world, IMind pMind, double pX, double pY, double xOrientation, double yOrientation)throws WorldDoesNotExistException
+    public void spawn(IWorld world, IMind pMind, double pX, double pY, double xOrientation, double yOrientation, IRandom pRdm, double pMinPos, double pMaxPos)throws WorldDoesNotExistException
     {
         _displayObject.position(pX, pY);
         
@@ -47,12 +48,12 @@ public class JavaFish implements IUpdatable, ISpawnable
         
         _mind = pMind;
         
-        _mind.initialise(_displayObject, pX, pY);
+        _mind.initialise(_displayObject, pRdm, pMinPos, pMaxPos, pX, pY);
     }
     
     public void update()
     {
         //Update mind class:
-        _mind.update();
+        ((IUpdatable)_mind).update();
     }
 }

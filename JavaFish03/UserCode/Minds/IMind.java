@@ -1,4 +1,6 @@
 package UserCode.Minds;
+
+import UserCode.Random.*;
 import Framework.Interfaces.IDisplayObject;
 
 /**
@@ -9,7 +11,5 @@ import Framework.Interfaces.IDisplayObject;
  */
 public interface IMind
 {
-    void initialise(IDisplayObject pDisplayObkject, double pX, double pY);
-    
-    void update();
+    void initialise(IDisplayObject pDisplayObkject, IRandom pRdm, double pMinPos, double pMaxPos, double pX, double pY);
 }
