@@ -14,7 +14,7 @@ import Exceptions.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class JavaFish implements IUpdatable, ISpawnable
+public class Piranha implements IUpdatable, ISpawnable
 {
     // instance variables
     // DECLARE an IDisplayObject to represent this JavaFish, call it _displayObject:
@@ -24,7 +24,7 @@ public class JavaFish implements IUpdatable, ISpawnable
     private static final String _model = "models/billboard/billboard.obj";
     
     // DECLARE a String to store the path to _displayObject texture, call it _texture, and initialise it:
-    private static final String _texture = "textures/javaFish/JavaFish.png";
+    private static final String _texture = "textures/javaFish/PiranhaGreen.png";
     
     // DECLARE an IMovement to control the fish, call it '_mind':
     private IMind _mind;
@@ -32,7 +32,7 @@ public class JavaFish implements IUpdatable, ISpawnable
     /**
      * Constructor for objects of class JavaFish
      */
-    public JavaFish()
+    public Piranha()
     {
         // INSTANTIATE _displayObject:
         _displayObject = new DisplayObject(_model, _texture, 0.15);

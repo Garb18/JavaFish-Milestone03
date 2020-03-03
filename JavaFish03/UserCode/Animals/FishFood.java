@@ -14,17 +14,17 @@ import Exceptions.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class JavaFish implements IUpdatable, ISpawnable
+public class FishFood implements IUpdatable, ISpawnable
 {
     // instance variables
     // DECLARE an IDisplayObject to represent this JavaFish, call it _displayObject:
     private IDisplayObject _displayObject;
     
     // DECLARE a String to store the path to _displayObject's model, call it _model, and initialise it:
-    private static final String _model = "models/billboard/billboard.obj";
+    private static final String _model = "sphere";
     
     // DECLARE a String to store the path to _displayObject texture, call it _texture, and initialise it:
-    private static final String _texture = "textures/javaFish/JavaFish.png";
+    private static final String _texture = "textures/javaFish/FishFood.png";
     
     // DECLARE an IMovement to control the fish, call it '_mind':
     private IMind _mind;
@@ -32,10 +32,10 @@ public class JavaFish implements IUpdatable, ISpawnable
     /**
      * Constructor for objects of class JavaFish
      */
-    public JavaFish()
+    public FishFood()
     {
         // INSTANTIATE _displayObject:
-        _displayObject = new DisplayObject(_model, _texture, 0.15);
+        _displayObject = new DisplayObject(_model, _texture, 0.05);
     }
     
     public void spawn(IWorld world, IMind pMind, double pX, double pY, double xOrientation, double yOrientation, IRandom pRdm, double pMinPos, double pMaxPos)throws WorldDoesNotExistException

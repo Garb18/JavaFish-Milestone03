@@ -54,7 +54,7 @@ public class Simulation implements IInputListener
     // DECLARE a boolean that signals when the simulation loop should be exited:
     private boolean endSim = false;    
     
-    private int _javaFishAmount = 10000, _orangeFishAmount = 10;
+    private int _javaFishAmount = 10, _orangeFishAmount = 10, _piranhaAmount = 4, _seaHorseAmount = 10, _urchinAmount = 7;
     
     /**
      * METHOD: Static Main method used for creating standalone apps
@@ -106,7 +106,6 @@ public class Simulation implements IInputListener
         
         //SUBSCRIBE this simulation to observer
         _inputPublisher.subscribe(this);
-
     }
     
     public void populate()
@@ -123,7 +122,49 @@ public class Simulation implements IInputListener
             }
             catch (Exception e)
             {
-                System.out.println("JavaFish spawn failed");
+                System.out.println("JavaFish failed");
+            }
+        }
+        for (int i=0; i<_piranhaAmount; i++)
+        {
+            try
+            {
+                //Factory creates the object
+                IUpdatable piranha = _factory.create(Piranha.class);
+                // Add object to _updatables list:
+                _updatables.add(piranha);
+            }
+            catch (Exception e)
+            {
+                System.out.println("Piranha failed");
+            }
+        }
+        for (int i=0; i<_seaHorseAmount; i++)
+        {
+            try
+            {
+                //Factory creates the object
+                IUpdatable seahorse = _factory.create(SeaHorse.class);
+                // Add object to _updatables list:
+                _updatables.add(seahorse);
+            }
+            catch (Exception e)
+            {
+                System.out.println("Seahorse failed");
+            }
+        }
+        for (int i=0; i<_urchinAmount; i++)
+        {
+            try
+            {
+                //Factory creates the object
+                IUpdatable urchin = _factory.create(Urchin.class);
+                // Add object to _updatables list:
+                _updatables.add(urchin);
+            }
+            catch (Exception e)
+            {
+                System.out.println("Urchin failed");
             }
         }
     }
@@ -154,7 +195,7 @@ public class Simulation implements IInputListener
             for (IUpdatable updatable : _updatables)
             {
                 // For each instance of JavaFish:
-                if (updatable instanceof JavaFish)
+                if (updatable instanceof JavaFish || updatable instanceof Piranha)
                 {
                     // Create a mind object
                     try
@@ -162,6 +203,34 @@ public class Simulation implements IInputListener
                         IUpdatable mind = _factory.create(HorizontalMind.class);
                         // Initialise updatable:
                         ((ISpawnable)updatable).spawn(_world, ((IMind)mind), _rdm.returnDouble(1,8), _rdm.returnDouble(1,7), 0, 270,_rdm, 1.0, 9.0);                
+                    }
+                    catch(Exception e)
+                    {
+                        //Do nothing
+                    }
+                }
+                if (updatable instanceof SeaHorse)
+                {
+                    // Create a mind object
+                    try
+                    {
+                        IUpdatable mind = _factory.create(DiagonalMind.class);
+                        // Initialise updatable:
+                        ((ISpawnable)updatable).spawn(_world, ((IMind)mind), _rdm.returnDouble(1,8), _rdm.returnDouble(1,7), 180, 90,_rdm, 1.0, 9.0);                
+                    }
+                    catch(Exception e)
+                    {
+                        //Do nothing
+                    }
+                }
+                if (updatable instanceof Urchin)
+                {
+                    // Create a mind object
+                    try
+                    {
+                        IUpdatable mind = _factory.create(HorizontalMind.class);
+                        // Initialise updatable:
+                        ((ISpawnable)updatable).spawn(_world, ((IMind)mind), _rdm.returnDouble(1,8), 1, 0, 270,_rdm, 1.0, 9.0);                
                     }
                     catch(Exception e)
                     {
@@ -190,14 +259,17 @@ public class Simulation implements IInputListener
                     
                     try
                     {
-                        // INSTANTIATE the new lion as an IUpdatable, call it 'lion':
-                        //IUpdatable lion = _factory.create(Lion.class);
+                        // INSTANTIATE the new FishFood as an IUpdatable, call it 'lion':
+                        IUpdatable fishFood = _factory.create(FishFood.class);
+                        IUpdatable mind = _factory.create(SinkingMind.class);
                         
-                        // ADD lion to _updatables:
-                        //_updatables.add(lion);
+                        // ADD FishFood to _updatables:
+                        _updatables.add(fishFood);
                         
-                        // SPAWN lion in 3D world:
-                        //((ISpawnable) lion).spawn(_world, posn[0], posn[1], posn[2], angle[0], angle[1], angle[2]);
+                        // SPAWN FishFood in 3D world:
+                        ((ISpawnable) fishFood).spawn(_world, ((IMind)mind), posn[0], posn[1], angle[0], angle[1], _rdm, 1, 10);
+                        
+                        _newFishFood = false;
                     }
                     catch (Exception e)
                     {
