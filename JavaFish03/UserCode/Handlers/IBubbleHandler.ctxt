@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=px\ py
-comment0.target=void\ placeBubble(double,\ double)
-comment1.params=
-comment1.target=void\ update()
+comment0.params=pWorld\ pFactory\ pRdm
+comment0.target=void\ Initialise(Framework.Interfaces.IWorld,\ UserCode.Factory.IUpdatableFactory,\ UserCode.Random.IRandom)
+comment1.params=px\ py
+comment1.target=void\ placeBubble(double,\ double)
 numComments=2

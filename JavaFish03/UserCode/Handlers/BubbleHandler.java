@@ -4,6 +4,8 @@ import Framework.Interfaces.*;
 import UserCode.Animals.ISpawnable;
 import UserCode.Animals.Bubble;
 import UserCode.Factory.*;
+import UserCode.Minds.*;
+import UserCode.Random.*;
 import Framework.Implementations.Core;
 import java.util.List;
 import java.util.ArrayList;
@@ -14,7 +16,7 @@ import java.util.ArrayList;
  * @author Benedict Gardner
  * @version 10/12/19
  */
-public class BubbleHandler implements IBubbleHandler
+public class BubbleHandler implements IBubbleHandler, IUpdatable
 {
     // Instance variables
     // DECLARE a reference to ICore, call it '_core':
@@ -22,7 +24,9 @@ public class BubbleHandler implements IBubbleHandler
     // DECALRE a reference to IBubble, call it '_bubble':
     private ISpawnable _bubble;
     // DECALRE a List, call it '_arrayDisplayBubble':
-    private List<IUpdatable> _displayBubble;
+    private List<IUpdatable> _displayBubble;    
+    // DECALRE a reference to IRandom, call it '_rdm':
+    private IRandom _rdm;
     
     private IUpdatableFactory _factory;
     /**
@@ -30,13 +34,18 @@ public class BubbleHandler implements IBubbleHandler
      */
     public BubbleHandler(IWorld pWorld)
     {
-       // initialise instance variables
+        //Do nothing
+    }
+    
+    public void Initialise(IWorld pWorld, IUpdatableFactory pFactory, IRandom pRdm)
+    {
        //STORE reference to core
        _world = pWorld;
+       //STORE reference to factory
+       _factory = pFactory;
+       _rdm = pRdm;
        //INITIALISE ArrayList
        _displayBubble = new ArrayList<IUpdatable>();
-       
-       _factory = new UpdatableFactory();
     }
     
     public void placeBubble(double px, double py)
@@ -44,16 +53,16 @@ public class BubbleHandler implements IBubbleHandler
         //INITIALISE a new bubble, position adjusted to make it seem centralised
         _bubble = new Bubble();
         //STORE bubble in ArrayList
-        displayBubble.add(_bubble);
+        _displayBubble.add((IUpdatable)_bubble);
         //PLACE bubble into the scene
         IMind _mind = new BubbleMind();
-        ((ISpawnable) _bubble).spawn(_world, px, py, 0, 90);
+        ((ISpawnable) _bubble).spawn(_world, _mind, px, py, 0, 90, _rdm, 0.0, 9.0);
     }
     
     public void update()
     {
         //Each bubble stored in ArrayList
-        for (IBubble _bubble: _arrayDisplayBubble)
+        for (IUpdatable _bubble: _displayBubble)
         {
             // When bubble reaches boundary
             if (_bubble.popBubble() == true)

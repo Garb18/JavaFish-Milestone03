@@ -13,15 +13,19 @@ import Exceptions.*;
  */
 public interface ISpawnable
 {
+    
     /**
-     * METHOD: spawn the ISpawnable at the given position/orientation
-     * @param world IWorld representing the 3D world.
-     * @param xPosn double giving the position along x axis.
-     * @param yPosn double giving the position along y axis.
-     * @param zPosn double giving position along z axis.
-     * @param xOrientation double giving the orientation about x axis.
-     * @param yOrientation double giving the orientation about y axis.
-     * @param zOrientation double giving orientation about z axis.
+     * Method spawn
+     *
+     * @param world A parameter
+     * @param pMind A parameter
+     * @param pX A parameter
+     * @param pY A parameter
+     * @param xOrientation A parameter
+     * @param yOrientation A parameter
+     * @param pRdm A parameter
+     * @param pMinPos A parameter
+     * @param pMaxPos A parameter
      */
     void spawn(IWorld world, IMind pMind, double pX, double pY, double xOrientation, double yOrientation, IRandom pRdm, double pMinPos, double pMaxPos)throws WorldDoesNotExistException;
 }

@@ -18,6 +18,7 @@ import UserCode.Minds.*;
 import UserCode.Factory.*;
 import UserCode.InputHandling.*;
 import UserCode.Random.*;
+import UserCode.Handlers.*;
 
 /**
  * Simulation is the top-level class for the Aquarium simulation.
@@ -56,6 +57,7 @@ public class Simulation implements IInputListener
     
     private int _javaFishAmount = 10, _orangeFishAmount = 10, _piranhaAmount = 4, _seaHorseAmount = 10, _urchinAmount = 7;
     
+    private IBubbleHandler _bHandler;
     /**
      * METHOD: Static Main method used for creating standalone apps
      *
@@ -81,11 +83,15 @@ public class Simulation implements IInputListener
         
         _rdm = new RandomDouble();
         
-        // _world:
         try
         {
+            //_world
             _world = ((IWorld) _factory.create(Core.class));
-
+            
+            _bHandler = ((IBubbleHandler)_factory.create(BubbleHandler.class));
+            
+            _bHandler.Initialise(_world, _factory, _rdm);
+            
             // _input:
             _input = (IInput) _world;
 
@@ -101,6 +107,8 @@ public class Simulation implements IInputListener
         // ADD _world implementation to _updatables:
         _updatables.add((IUpdatable) _world);
 
+        _updatables.add((IUpdatable) _bHandler);
+        
         // ADD _inputPublisher implementation to _updatables:
         _updatables.add((IUpdatable) _inputPublisher);
         
