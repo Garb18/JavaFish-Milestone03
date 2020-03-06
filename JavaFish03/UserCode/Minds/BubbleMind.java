@@ -21,8 +21,6 @@ public class BubbleMind implements IMind, IUpdatable
     
     private boolean sink = true;
     
-    private IRandom _rdm;
-    
     private IDisplayObject _displayobj;
 
     /**
@@ -37,10 +35,22 @@ public class BubbleMind implements IMind, IUpdatable
     {        
         // initialise instance variables
         _displayobj = pDisplayObject;
-        _x = pX; _y = pY; _rdm = pRdm; _minPos = pMinPos; _maxPos = pMaxPos;
+        _x = pX; _y = pY; _minPos = pMinPos; _maxPos = pMaxPos;
         
-        _speedX = _rdm.returnDouble(0.0005, 0.005) * _facingDirectionX;
-        _speedY = _rdm.returnDouble(0.005, 0.05) * _facingDirectionY;
+        _speedX = pRdm.returnDouble(0.0005, 0.005) * _facingDirectionX;
+        _speedY = pRdm.returnDouble(0.005, 0.05) * _facingDirectionY;
+    }
+    
+    public boolean outOfBounds()
+    {
+        if(_y >= _maxPos)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     
     public void update()

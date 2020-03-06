@@ -21,8 +21,6 @@ public class HorizontalMind implements IMind, IUpdatable
     
     private boolean _flipped;
     
-    private IRandom _rdm;
-    
     private IDisplayObject _displayobj;
 
     /**
@@ -37,9 +35,9 @@ public class HorizontalMind implements IMind, IUpdatable
     {        
         // initialise instance variables
         _displayobj = pDisplayObject;
-        _x = pX; _y = pY; _rdm = pRdm; _minPos = pMinPos; _maxPos = pMaxPos;
+        _x = pX; _y = pY; _minPos = pMinPos; _maxPos = pMaxPos;
         
-        _speed = _rdm.returnDouble(0.005, 0.05) * _facingDirection;
+        _speed = pRdm.returnDouble(0.005, 0.05) * _facingDirection;
     }
     
     public void update()

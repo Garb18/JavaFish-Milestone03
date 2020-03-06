@@ -56,7 +56,14 @@ public class BubbleHandler implements IBubbleHandler, IUpdatable
         _displayBubble.add((IUpdatable)_bubble);
         //PLACE bubble into the scene
         IMind _mind = new BubbleMind();
-        ((ISpawnable) _bubble).spawn(_world, _mind, px, py, 0, 90, _rdm, 0.0, 9.0);
+        try
+        {
+            ((ISpawnable) _bubble).spawn(_world, _mind, px, py, 0, 90, _rdm, 0.0, 9.0);
+        }
+        catch(Exception e)
+        {
+            //Do nothing
+        }
     }
     
     public void update()
@@ -65,11 +72,19 @@ public class BubbleHandler implements IBubbleHandler, IUpdatable
         for (IUpdatable _bubble: _displayBubble)
         {
             // When bubble reaches boundary
-            if (_bubble.popBubble() == true)
+            if (true)
             {
                 // "POP" the bubble:
-                _core.removeDisplayObject((IDisplayObject)_bubble);
+                try
+                {
+                    _world.removeDisplayObject((IDisplayObject)_bubble);
+                }
+                catch(Exception e)
+                {
+                    //Do nothing
+                }
             }
+            _bubble.update();
         }
     }
 }

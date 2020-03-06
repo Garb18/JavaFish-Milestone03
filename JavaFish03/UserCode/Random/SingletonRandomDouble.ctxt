@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=SingletonRandomDouble()
+comment1.params=
+comment1.target=SingletonRandomDouble\ getInstance()
+comment2.params=
+comment2.target=double\ returnDouble()
+comment2.text=\r\n\ Method\ returnDouble\r\n\r\n\ @return\ A\ random\ double\r\n
+comment3.params=min\ max
+comment3.target=double\ returnDouble(double,\ double)
+comment3.text=\r\n\ Method\ returnDouble\r\n\ Returns\ a\ random\ double\ between\ a\ user\ specified\ range\r\n\r\n\ @param\ min\ Minimum\ value\ returned\ in\ range\r\n\ @param\ max\ Maximum\ value\ returned\ in\ range\r\n\ @return\ The\ return\ random\ double\r\n
+numComments=4

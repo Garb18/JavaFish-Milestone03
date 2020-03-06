@@ -17,6 +17,7 @@ public class UpdatableFactory implements IUpdatableFactory
      */
     public UpdatableFactory()
     {
+        //Do nothing
     }
 
     /**

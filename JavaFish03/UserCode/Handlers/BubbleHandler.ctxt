@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=pWorld
+comment0.target=BubbleHandler(Framework.Interfaces.IWorld)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ BubbleHandler\r\n
+comment1.params=pWorld\ pFactory\ pRdm
+comment1.target=void\ Initialise(Framework.Interfaces.IWorld,\ UserCode.Factory.IUpdatableFactory,\ UserCode.Random.IRandom)
+comment2.params=px\ py
+comment2.target=void\ placeBubble(double,\ double)
+comment3.params=
+comment3.target=void\ update()
+numComments=4

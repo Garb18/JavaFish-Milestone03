@@ -13,7 +13,6 @@ import Exceptions.*;
  */
 public interface ISpawnable
 {
-    
     /**
      * Method spawn
      *

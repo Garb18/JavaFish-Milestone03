@@ -38,6 +38,19 @@ public class JavaFish implements IUpdatable, ISpawnable
         _displayObject = new DisplayObject(_model, _texture, 0.15);
     }
     
+    /**
+     * Method spawn
+     *
+     * @param world reference to world
+     * @param pMind reference to a mind
+     * @param pX X starting position
+     * @param pY Y starting position
+     * @param xOrientation 
+     * @param yOrientation 
+     * @param pRdm reference to random class
+     * @param pMinPos minimum aquarium position
+     * @param pMaxPos maximum aquarium position
+     */
     public void spawn(IWorld world, IMind pMind, double pX, double pY, double xOrientation, double yOrientation, IRandom pRdm, double pMinPos, double pMaxPos)throws WorldDoesNotExistException
     {
         _displayObject.position(pX, pY);

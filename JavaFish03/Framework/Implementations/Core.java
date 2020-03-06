@@ -83,7 +83,7 @@ public class Core implements IWorld, IUpdatable, IInput
         _world.setDefaultControl(false);
         
         // Set the window resolution:
-        _world.setResolution(1280,1080,24);
+        _world.setResolution(1280,960,24);
         
         // Instantiate Aquarium and assign it to the environment as the scene:
         _world.setRoom(new Aquarium(10, 8, 1));

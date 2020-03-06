@@ -2,10 +2,8 @@ package UserCode.Animals;
 
 import UserCode.Minds.*;
 import UserCode.Random.*;
-import Framework.Interfaces.IDisplayObject;
-import Framework.Interfaces.IWorld;
+import Framework.Interfaces.*;
 import Framework.Implementations.DisplayObject;
-import Framework.Interfaces.IUpdatable;
 import Exceptions.*;
 
 /**
@@ -49,6 +47,18 @@ public class Bubble implements IUpdatable, ISpawnable
         _mind = pMind;
         
         _mind.initialise(_displayObject, pRdm, pMinPos, pMaxPos, pX, pY);
+    }    
+    
+    public boolean outOfBounds()
+    {
+        if(true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     
     public void update()

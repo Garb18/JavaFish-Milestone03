@@ -4,6 +4,7 @@ comment0.target=JavaFish()
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ JavaFish\r\n
 comment1.params=world\ pMind\ pX\ pY\ xOrientation\ yOrientation\ pRdm\ pMinPos\ pMaxPos
 comment1.target=void\ spawn(Framework.Interfaces.IWorld,\ UserCode.Minds.IMind,\ double,\ double,\ double,\ double,\ UserCode.Random.IRandom,\ double,\ double)
+comment1.text=\r\n\ Method\ spawn\r\n\r\n\ @param\ world\ reference\ to\ world\r\n\ @param\ pMind\ reference\ to\ a\ mind\r\n\ @param\ pX\ X\ starting\ position\r\n\ @param\ pY\ Y\ starting\ position\r\n\ @param\ xOrientation\ \r\n\ @param\ yOrientation\ \r\n\ @param\ pRdm\ reference\ to\ random\ class\r\n\ @param\ pMinPos\ minimum\ aquarium\ position\r\n\ @param\ pMaxPos\ maximum\ aquarium\ position\r\n
 comment2.params=
 comment2.target=void\ update()
 numComments=3
